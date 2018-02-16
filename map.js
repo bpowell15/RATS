@@ -12,7 +12,7 @@ class Map {
 
   loadData(){
 
-    d3.csv('rats.csv', (error, data)=>{
+    d3.csv('rats2.csv', (error, data)=>{
       if (error) throw error;
       const overlay = new google.maps.OverlayView();
 
@@ -32,17 +32,18 @@ class Map {
           .style("opacity", 0);
 
           let marker = layer.selectAll("svg")
-              .data(d3.entries(data))
-              .each(transform) // update existing markers
+            .data(d3.entries(data))
+            .each(transform) // update existing markers
             .enter().append("svg")
-              .each(transform)
-              .attr("class", "marker");
+            .each(transform)
+            .attr("class", "marker");
 
           marker.append("circle")
             .attr("r", 4.5)
             .attr("cx", padding)
             .attr("cy", padding)
-            .style("fill", "rgba(0, 0, 0, 0)")
+            .style("fill", "rgba(255, 0, 0, .05)")
+            .style("stroke", "none")
             .on("mouseover", function(d) {
                 div.transition()
                     .duration(200)

@@ -23132,7 +23132,7 @@ var Map = function () {
     value: function loadData() {
       var _this = this;
 
-      d3.csv('rats.csv', function (error, data) {
+      d3.csv('rats2.csv', function (error, data) {
         if (error) throw error;
         var overlay = new google.maps.OverlayView();
 
@@ -23148,7 +23148,7 @@ var Map = function () {
             var marker = layer.selectAll("svg").data(d3.entries(data)).each(transform) // update existing markers
             .enter().append("svg").each(transform).attr("class", "marker");
 
-            marker.append("circle").attr("r", 4.5).attr("cx", padding).attr("cy", padding).style("fill", "rgba(0, 0, 0, 0)").on("mouseover", function (d) {
+            marker.append("circle").attr("r", 4.5).attr("cx", padding).attr("cy", padding).style("fill", "rgba(255, 0, 0, .05)").style("stroke", "none").on("mouseover", function (d) {
               div.transition().duration(200).style("opacity", .9);
               div.html("Reported on: " + d.value["Created Date"].split(" ")[0] + "<br/>" + "Closed on: " + d.value["Closed Date"].split(" ")[0]).style("left", d3.event.pageX + "px").style("top", d3.event.pageY - 50 + "px").style("color", "black").style("background-color", "white");
             }).on("mouseout", function (d) {
