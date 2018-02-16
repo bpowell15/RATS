@@ -12,7 +12,7 @@ class Map {
 
   loadData(){
 
-    d3.csv('rats2.csv', (error, data)=>{
+    d3.csv('rats.csv', (error, data)=>{
       if (error) throw error;
       const overlay = new google.maps.OverlayView();
 

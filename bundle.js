@@ -23132,7 +23132,7 @@ var Map = function () {
     value: function loadData() {
       var _this = this;
 
-      d3.csv('rats2.csv', function (error, data) {
+      d3.csv('rats.csv', function (error, data) {
         if (error) throw error;
         var overlay = new google.maps.OverlayView();
 
