@@ -42,7 +42,7 @@ class Map {
             .attr("r", 4.5)
             .attr("cx", padding)
             .attr("cy", padding)
-            .style("fill", "rgba(255, 0, 0, .05)")
+            .style("fill", "rgba(255, 0, 0, .01)")
             .style("stroke", "none")
             .on("mouseover", function(d) {
                 div.transition()
