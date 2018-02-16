@@ -23120,7 +23120,7 @@ var Map = function () {
     _classCallCheck(this, Map);
 
     this.map = new google.maps.Map(d3.select("#map").node(), {
-      zoom: 11,
+      zoom: 10,
       markers: [],
       center: { lat: 40.7128, lng: -74.0060 },
       styles: style.style

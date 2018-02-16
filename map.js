@@ -3,7 +3,7 @@ import * as style from './map_style';
 class Map {
   constructor(){
     this.map = new google.maps.Map(d3.select("#map").node(), {
-      zoom: 11,
+      zoom: 10,
       markers: [],
       center: {lat: 40.7128, lng: -74.0060 },
       styles: style.style
