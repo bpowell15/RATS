@@ -19,7 +19,8 @@ class Map {
 
       overlay.onAdd = ()=> {
         let layer = d3.select(overlay.getPanes().overlayMouseTarget).append("div")
-        .attr("class", "stations");
+        .attr("class", "rats")
+        ;
 
 
         overlay.draw = ()=>{
@@ -38,13 +39,14 @@ class Map {
               .attr("class", "marker");
 
           marker.append("circle")
-            .attr("r", 3)
+            .attr("r", 4.5)
             .attr("cx", padding)
             .attr("cy", padding)
+            .style("fill", "rgba(0, 0, 0, 0)")
             .on("mouseover", function(d) {
                 div.transition()
                     .duration(200)
-                    .style("opacity", .99);
+                    .style("opacity", .9);
                 div.html("Reported on: " + d.value["Created Date"].split(" ")[0] + "<br/>"  + "Closed on: " + d.value["Closed Date"].split(" ")[0])
                     .style("left", (d3.event.pageX) + "px")
                     .style("top", (d3.event.pageY - 50) + "px")
@@ -80,6 +82,7 @@ class Map {
       overlay.setMap(this.map);
     });
   }
+
 }
 
 export default Map;

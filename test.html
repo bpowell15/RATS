@@ -10,18 +10,18 @@ html, body, #map {
   padding: 0;
 }
 
-.stations, .stations svg {
+.rats, .rats svg {
   position: absolute;
 }
 
-.stations svg {
+.rats svg {
   width: 60px;
   height: 20px;
   padding-right: 100px;
   font: 10px sans-serif;
 }
 
-.stations circle {
+.rats circle {
   fill: brown;
   stroke: black;
   stroke-width: 1.5px;
@@ -42,7 +42,7 @@ var map = new google.maps.Map(d3.select("#map").node(), {
 });
 
 // Load the station data. When the data comes back, create an overlay.
-d3.json("stations.json", function(error, data) {
+d3.json("rats.json", function(error, data) {
   if (error) throw error;
 
   var overlay = new google.maps.OverlayView();
@@ -50,7 +50,7 @@ d3.json("stations.json", function(error, data) {
   // Add the container when the overlay is added to the map.
   overlay.onAdd = function() {
     var layer = d3.select(this.getPanes().overlayLayer).append("div")
-        .attr("class", "stations");
+        .attr("class", "rats");
         console.log(this)
     // Draw ea ch marker as a separate SVG element.
     // We could use a single SVG, but what size would it have?
