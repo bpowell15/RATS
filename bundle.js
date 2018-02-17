@@ -9928,10 +9928,6 @@ function transform(node) {
 "use strict";
 
 
-var _visual_data = __webpack_require__(174);
-
-var _visual_data2 = _interopRequireDefault(_visual_data);
-
 var _map = __webpack_require__(466);
 
 var _map2 = _interopRequireDefault(_map);
@@ -9940,64 +9936,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 document.addEventListener("DOMContentLoaded", function () {
   var map = void 0;
-  document.getElementsByTagName('body', new _visual_data2.default());
   map = new _map2.default();
   map.loadData();
 });
 
 /***/ }),
-/* 174 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _d = __webpack_require__(90);
-
-var d3 = _interopRequireWildcard(_d);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function VisualData() {
-
-  var returnColor = void 0;
-  var circleRadii = [40, 20, 10];
-  var xCoord = [30, 60, 120];
-  var yCoord = [30, 60, 120];
-  var i = 0;
-  var svgContainer = d3.select("map").append("svg").attr("width", 200).attr("height", 200);
-  var circles = svgContainer.selectAll("circle").data(circleRadii).enter().append("circle");
-  var circleAttributes = circles.attr("cx", function (d) {
-    return d;
-  }).attr("cy", function (d) {
-    return d;
-  }).attr("r", function (d) {
-    return d;
-  }).style("fill", function (d) {
-    if (d === circleRadii[0]) {
-      returnColor = "green";
-    } else if (d === circleRadii[1]) {
-      returnColor = "purple";
-    } else if (d === circleRadii[2]) {
-      returnColor = "red";
-    }
-    return returnColor;
-  });
-  var result = [];
-  circleRadii.forEach(function (r) {
-    result.push(r * 2);
-  });
-  circleRadii = result;
-  circleAttributes.exit();
-}
-
-exports.default = VisualData;
-
-/***/ }),
+/* 174 */,
 /* 175 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -23120,7 +23064,7 @@ var Map = function () {
     _classCallCheck(this, Map);
 
     this.map = new google.maps.Map(d3.select("#map").node(), {
-      zoom: 10,
+      zoom: 11,
       markers: [],
       center: { lat: 40.7128, lng: -74.0060 },
       styles: style.style
@@ -23148,7 +23092,7 @@ var Map = function () {
             var marker = layer.selectAll("svg").data(d3.entries(data)).each(transform) // update existing markers
             .enter().append("svg").each(transform).attr("class", "marker");
 
-            marker.append("circle").attr("r", 4.5).attr("cx", padding).attr("cy", padding).style("fill", "rgba(255, 0, 0, .01)").style("stroke", "none").on("mouseover", function (d) {
+            marker.append("circle").attr("r", 2).attr("cx", padding).attr("cy", padding).style("fill", "rgba(255, 0, 0, .05)").style("stroke", "none").on("mouseover", function (d) {
               div.transition().duration(200).style("opacity", .9);
               div.html("Reported on: " + d.value["Created Date"].split(" ")[0] + "<br/>" + "Closed on: " + d.value["Closed Date"].split(" ")[0]).style("left", d3.event.pageX + "px").style("top", d3.event.pageY - 50 + "px").style("color", "black").style("background-color", "white");
             }).on("mouseout", function (d) {

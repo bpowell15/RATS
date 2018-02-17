@@ -60,12 +60,13 @@
 
     #map{
       /* animation: 1s ease-out 0s 1 slideUp; */
-        box-shadow: 0px 5px 20px grey;
+        /* box-shadow: 0px 5px 20px grey; */
         z-index: 10;
+        opacity: .75;
     }
 
     header {
-      animation: 1s ease-out 0s 1 zoom;
+      /* animation: 1s ease-out 0s 1 zoom; */
       font-size: 2em;
       text-align: center;
       font-family: 'Butcherman', cursive;
@@ -82,11 +83,19 @@
     }
 
     .rat{
-      animation: 1s ease-out 0s 1 slideInFromLeft;
+      /* animation: 1s ease-out 0s 1 slideInFromLeft; */
       position: absolute;
       right: -200px;
       top: 45%;
       opacity: .4;
+    }
+
+    .description {
+      /* animation: 1s ease-out 0s 1 slideInFromLeft; */
+      position: absolute;
+      top: 47px;
+      right: 17px;
+      width: 20vw;
     }
 
     .tooltip {
@@ -103,6 +112,49 @@
       z-index: 100;
     }
 
+    @keyframes slideInFromRight {
+      0% {
+        transform: translateX(-200%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .year {
+      /* animation: 1s ease-out 0s 1 slideInFromRight; */
+      position: absolute;
+      top: 15%;
+      left: 10vw;
+      list-style: none;
+    }
+
+    li{
+      background-color: #191919;
+      padding: 10px;
+      margin: 10px;
+      text-align: center;
+    }
+
+    li:hover {
+      color: red;
+      cursor: pointer;
+      background-color: #3a3a3a;
+    }
+
+    li:active{
+      color: red;
+      cursor: pointer;
+      background-color: #3a3a3a;
+    }
+
+    .boroughs {
+      position: absolute;
+      top: 25%;
+      left: 0;
+      list-style: none;
+    }
+
     </style>
     <title>Rats in the City</title>
   </head>
@@ -112,6 +164,27 @@
     </header>
     <!-- <input id="data-selector" type="button" value="Update"></input> -->
     <div id="map" style="height: 80vh; width: 50vw; margin: 0 auto;"></div>
+    <ul class="year">
+      <li>2010</li>
+      <li>2011</li>
+      <li>2012</li>
+      <li>2013</li>
+      <li>2014</li>
+      <li>2015</li>
+      <li>2016</li>
+      <li>2017</li>
+      <li>2018</li>
+      <li>All</li>
+    </ul>
+    <p class="description"><span style="font-size:14px; text-align:right;">New York City: Pizza, Traffic,<b style="color:red; font-size:24px;">RATS</b></span></br></br>Rats are everywhere in the city and although cute and cuddly, they can be a pest. NYC Open Data provides information about Rat Sightings that have been reported to the Department of Health and Mental Hygene. These records can be used to see which neighborhoods are most rat prone.</p>
+    <ul class="boroughs">
+      <li>Manhattan</li>
+      <li>Brooklyn</li>
+      <li>Queens</li>
+      <li>Bronx</li>
+      <li>Staten Island</li>
+      <li>All</li>
+    </ul>
     <img class="rat" src="rat.png" alt="">
   </body>
 </html>

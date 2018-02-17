@@ -3,7 +3,7 @@ import * as style from './map_style';
 class Map {
   constructor(){
     this.map = new google.maps.Map(d3.select("#map").node(), {
-      zoom: 10,
+      zoom: 11,
       markers: [],
       center: {lat: 40.7128, lng: -74.0060 },
       styles: style.style
@@ -39,10 +39,10 @@ class Map {
             .attr("class", "marker");
 
           marker.append("circle")
-            .attr("r", 4.5)
+            .attr("r", 2)
             .attr("cx", padding)
             .attr("cy", padding)
-            .style("fill", "rgba(255, 0, 0, .01)")
+            .style("fill", "rgba(255, 0, 0, .05)")
             .style("stroke", "none")
             .on("mouseover", function(d) {
                 div.transition()
