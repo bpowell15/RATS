@@ -61,15 +61,6 @@ class Map {
                     .style("opacity", 0);
             });
 
-          // marker.append("text")
-          //   .attr("x", padding + 7)
-          //   .attr("y", padding)
-          //   .attr("dy", ".31em")
-          //   .text(function(d) {
-          //     debugger
-          //     return ("Reported on: " + d.value["Created Date"] + '<br>' + ' Resolved on: ' + d.value["Closed Date"]);
-          //   });
-
           function transform(d) {
 
             d = new google.maps.LatLng(d.value.Latitude, d.value.Longitude);
