@@ -9526,7 +9526,7 @@ var Map = function () {
             .enter().append("svg").each(transform).attr("class", "marker");
 
             marker.append("circle").attr("r", 2).attr("cx", padding).attr("cy", padding).style("fill", "rgba(255, 0, 0, .05)").style("stroke", "none").on("mouseover", function (d) {
-              div.transition().duration(200).style("opacity", .9).style("cursor", "crosshair");
+              div.transition().duration(200).style("opacity", .9);
               div.html("Reported on: " + d.value["Created Date"].split(" ")[0] + "<br/>" + "Closed on: " + d.value["Closed Date"].split(" ")[0]).style("left", d3.event.pageX + "px").style("top", d3.event.pageY - 50 + "px").style("color", "black").style("background-color", "white");
             }).on("mouseout", function (d) {
               div.transition().duration(500).style("opacity", 0);
