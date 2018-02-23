@@ -47,7 +47,9 @@ class Map {
             .on("mouseover", function(d) {
                 div.transition()
                     .duration(200)
-                    .style("opacity", .9);
+                    .style("opacity", .9)
+                    .style("cursor", "crosshair")
+                    ;
                 div.html("Reported on: " + d.value["Created Date"].split(" ")[0] + "<br/>"  + "Closed on: " + d.value["Closed Date"].split(" ")[0])
                     .style("left", (d3.event.pageX) + "px")
                     .style("top", (d3.event.pageY - 50) + "px")
